@@ -22,3 +22,9 @@ https://medium.com/@senges.alex/how-to-use-c-polymorphism-in-rust-76e1d1a88ed1
 ## Compile and run
 
     cargo run
+    
+# Zig - Soon
+
+## Compile and run
+
+    zig build run
