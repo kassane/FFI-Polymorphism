@@ -8,7 +8,7 @@ https://medium.com/@senges.alex/how-to-use-c-polymorphism-in-rust-76e1d1a88ed1
 
 ## compile
 
-    cmake -S cpp -B build -DCMAKE_TYPE_BUILD=Release 
+    cmake -S . -B build -DCMAKE_TYPE_BUILD=Release 
     cmake --build build
     
 ## Run
