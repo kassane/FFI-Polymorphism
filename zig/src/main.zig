@@ -5,14 +5,14 @@ pub fn main() anyerror!void {
 }
 
 pub const Button = extern struct {
-    extern fn click(self: @This) c_void,
-    extern fn inner_text(self: @This) []const u8,
-}
+    click: fn (self: @This()) c_void,
+    inner_text: fn (self: @This()) []const u8,
+};
 
-extern fn AbstractButtonBinding(T: type) @TypeOf(T) {
+pub fn AbstractButtonBinding(T: type) @TypeOf(T) {
     return extern struct {
-        click: extern fn(*T) c_void,
-        inner_text: extern fn(*T) callconv(.C) *const char,
+        click: fn(*T) c_void,
+        inner_text: fn(*T) callconv(.C) *const char,
         context: *T,
     };
 }

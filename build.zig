@@ -11,11 +11,17 @@ pub fn build(b: *Builder) void {
 
     // Standard release options allow the person running `zig build` to select
     // between Debug, ReleaseSafe, ReleaseFast, and ReleaseSmall.
+     b.setPreferredReleaseMode(.ReleaseSafe);
     const mode = b.standardReleaseOptions();
 
     const exe = b.addExecutable("medium", "zig/src/main.zig");
+    if (mode != .Debug) {
+        exe.strip = true;
+    }
     exe.setTarget(target);
     exe.setBuildMode(mode);
+    exe.addLibPath("build");
+    exe.linkSystemLibraryName("gui");
     exe.install();
 
     const run_cmd = exe.run();
