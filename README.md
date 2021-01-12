@@ -8,14 +8,12 @@ https://medium.com/@senges.alex/how-to-use-c-polymorphism-in-rust-76e1d1a88ed1
 
 ## compile
 
-    mkdir release && cd release
-    cmake .. .
-    cd ..
-    cmake --build release
+    cmake -S cpp -B build -DCMAKE_TYPE_BUILD=Release 
+    cmake --build build
     
 ## Run
 
-    ./release/cpp_example
+    ./build/cpp_example
     
 # Rust
 
@@ -23,7 +21,7 @@ https://medium.com/@senges.alex/how-to-use-c-polymorphism-in-rust-76e1d1a88ed1
 
     cargo run
     
-# Zig - Soon
+# Zig - soon
 
 ## Compile and run
 
